@@ -1,0 +1,24 @@
+PODS:
+  - Google-Mobile-Ads-SDK (7.34.0)
+  - SwiftSoup (1.7.4)
+  - TextFieldEffects (1.5.0)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - SwiftSoup
+  - TextFieldEffects
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Google-Mobile-Ads-SDK
+    - SwiftSoup
+    - TextFieldEffects
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: a1cbce28c0c78ca1fb0b6c4f213485f55527c99f
+  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
+  TextFieldEffects: bf9e9cac7cb1a97d632fbcd0724bb6347dd86633
+
+PODFILE CHECKSUM: de3cfc25a1505acf1999b352ecc18066cbcf22cb
+
+COCOAPODS: 1.5.3
