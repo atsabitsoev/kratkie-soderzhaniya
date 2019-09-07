@@ -14,7 +14,7 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     
-    var arrayOfPicturesData: [Data] = []
+    var arrayOfPicturesData: [URL] = []
     var arrayOfText1: [String] = []
     var arrayOfText2: [String] = []
     var arrayOfLinks: [String] = []
@@ -47,7 +47,8 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
         //Картинка
         if arrayOfPicturesData.count - 1 >= indexPath.row {
             
-            cell.imBook.image = UIImage(data: arrayOfPicturesData[indexPath.row])
+            cell.imBook.sd_setImage(with: arrayOfPicturesData[indexPath.row],
+                                    completed: nil)
             
         }
         
@@ -287,16 +288,9 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
                                 let string = try i.attr("src")
                                 let string1 = "https://briefly.ru" + string
                                 print(string1)
-                                let url1 = URL(string: string1)
-                                let data = try Data(contentsOf: url1!)
-                                
-                                self.arrayOfPicturesData.append(data)
-                                
-                                
-                                
-                                
-                                
-                                
+                                if let url1 = URL(string: string1) {
+                                    self.arrayOfPicturesData.append(url1)
+                                }
                             }
                         }
                         DispatchQueue.main.async {

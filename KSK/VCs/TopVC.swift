@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSoup
 import GoogleMobileAds
+import SDWebImage
 
 var nowBookFromWiki = false
 
@@ -31,7 +32,8 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //Картинка
         if arrayOfPicturesData.count - 1 >= indexPath.row {
             
-            cell.imBook.image = UIImage(data: arrayOfPicturesData[indexPath.row])
+            cell.imBook.sd_setImage(with: arrayOfPicturesData[indexPath.row],
+                                    completed: nil)
             
         }
         
@@ -68,7 +70,7 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
 
-    var arrayOfPicturesData: [Data] = []
+    var arrayOfPicturesData: [URL] = []
     var arrayOfText1: [String] = []
     var arrayOfLinks: [String] = []
     
@@ -246,16 +248,9 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 let string = try i.attr("src")
                                 let string1 = "https://briefly.ru" + string
                                 print(string1)
-                                let url1 = URL(string: string1)
-                                let data = try Data(contentsOf: url1!)
-                                
-                                self.arrayOfPicturesData.append(data)
-                                
-                                
-                                
-                                
-                                
-                                
+                                if let url1 = URL(string: string1) {
+                                    self.arrayOfPicturesData.append(url1)
+                                }
                             }
                         }
                         

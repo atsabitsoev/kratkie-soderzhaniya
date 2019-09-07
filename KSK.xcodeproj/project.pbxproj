@@ -62,7 +62,7 @@
 		5B615A6421A2FB3000CC748A /* SelecedClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecedClassVC.swift; sourceTree = "<group>"; };
 		5B615A6621A3089C00CC748A /* SelectedClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedClassCell.swift; sourceTree = "<group>"; };
 		5B615A6821A30EFA00CC748A /* BookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
-		5B7AEB6421A2AA3F0072F703 /* KSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B7AEB6421A2AA3F0072F703 /* Пересказы.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Пересказы.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7AEB6721A2AA400072F703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B7AEB6C21A2AA400072F703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B7AEB6E21A2AA410072F703 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		5B7AEB6521A2AA3F0072F703 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B7AEB6421A2AA3F0072F703 /* KSK.app */,
+				5B7AEB6421A2AA3F0072F703 /* Пересказы.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			);
 			name = KSK;
 			productName = KSK;
-			productReference = 5B7AEB6421A2AA3F0072F703 /* KSK.app */;
+			productReference = 5B7AEB6421A2AA3F0072F703 /* Пересказы.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -270,7 +270,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KSK/Pods-KSK-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KSK/Pods-KSK-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
@@ -278,12 +279,13 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSK/Pods-KSK-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KSK/Pods-KSK-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F34A2F68C408A5DC596404B5 /* [CP] Check Pods Manifest.lock */ = {
@@ -478,8 +480,8 @@
 			baseConfigurationReference = 7147F2512C43F865B81CF91B /* Pods-KSK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89WB9E7UEU;
 				INFOPLIST_FILE = KSK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -487,9 +489,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = a.s.bitsoev.KSKPro;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "KSK Pro";
+				PRODUCT_NAME = "Пересказы";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -500,8 +503,8 @@
 			baseConfigurationReference = 386BEB17E7E83CFDC822E0A7 /* Pods-KSK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89WB9E7UEU;
 				INFOPLIST_FILE = KSK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -509,9 +512,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = a.s.bitsoev.KSKPro;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "KSK Pro";
+				PRODUCT_NAME = "Пересказы";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

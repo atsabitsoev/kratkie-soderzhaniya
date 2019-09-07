@@ -10,6 +10,6 @@ target 'KSK' do
 pod 'TextFieldEffects'
 pod 'SwiftSoup'
 pod 'Google-Mobile-Ads-SDK'
-
+pod 'SDWebImage', '~> 5.0'
 
 end

@@ -21,7 +21,7 @@ class PoKlassamVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     
     // Массив картинок для "классов
-    var arrayOfPicturesOfClasses: [Data] = []
+    var arrayOfPicturesOfClasses: [URL] = []
     
     
     
@@ -48,7 +48,8 @@ class PoKlassamVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         //Ставим картинки с массива на свое место
         if arrayOfPicturesOfClasses.count - 1 >= indexPath.row {
             
-                cell.imClass.image = UIImage(data: arrayOfPicturesOfClasses[indexPath.row])
+                cell.imClass.sd_setImage(with: arrayOfPicturesOfClasses[indexPath.row],
+                                         completed: nil)
             
         }
         
@@ -168,17 +169,9 @@ class PoKlassamVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                             if try i.attr("width") == "514" {
                                 let halfLinkToCurrentPicture = try i.attr("src")
                                 let string1 = "https://briefly.ru" + halfLinkToCurrentPicture
-                                let linkToCurrentPicture = URL(string: string1)
-                                
-                                print(string1)
-                                let imData = try Data(contentsOf: linkToCurrentPicture!)
-                                print("оаоаоаоао")
-                                
-                                self.arrayOfPicturesOfClasses.append(imData)
-                                print("hello")
-                                
-                                
-                                
+                                if let linkToCurrentPicture = URL(string: string1) {
+                                    self.arrayOfPicturesOfClasses.append(linkToCurrentPicture)
+                                }
                             }
                             
                             
