@@ -159,11 +159,6 @@ class PoKlassamVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                         
                         // Совершем все операции!
                         
-                        
-                        
-                        
-                        
-                        
                         for i in element {
                             
                             if try i.attr("width") == "514" {
