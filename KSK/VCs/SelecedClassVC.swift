@@ -173,7 +173,7 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
     func getArrayOfBooksImagesAndText () {
         
         
-        let url = "https://briefly.ru/toprated/"
+        let url = "https://briefly.ru/school/11class"
         
         
         let myUrl = URL(string: url)
@@ -265,7 +265,7 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
                         // Картинка и ссылки
                         for i in element {
                             
-                            if try i.attr("width") == "320" {
+                            if try i.attr("width") == "240" || i.attr("width") == "320" {
                                 
                                 let string = try i.attr("src")
                                 let string1 = "https://briefly.ru" + string

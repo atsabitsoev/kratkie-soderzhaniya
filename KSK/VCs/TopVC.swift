@@ -245,7 +245,7 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         // Картинка и ссылки
                         for i in element {
                             
-                            if try i.attr("width") == "320" {
+                            if try i.attr("width") == "240" || i.attr("width") == "320" {
                                 
                                 let string = try i.attr("src")
                                 let string1 = "https://briefly.ru" + string
