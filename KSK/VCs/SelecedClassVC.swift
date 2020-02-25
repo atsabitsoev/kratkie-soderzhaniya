@@ -173,28 +173,7 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
     func getArrayOfBooksImagesAndText () {
         
         
-        var url = ""
-        
-        
-        switch selectedRowTitle {
-        case "11 класс":
-            url = "https://briefly.ru/school/11class/"
-        case "10 класс":
-            url = "https://briefly.ru/school/10class/"
-        case "9 класс":
-            url = "https://briefly.ru/school/9class/"
-        case "8 класс":
-            url = "https://briefly.ru/school/8class/"
-        case "7 класс":
-            url = "https://briefly.ru/school/7class/"
-        case "6 класс":
-            url = "https://briefly.ru/school/6class/"
-        case "5 класс":
-            url = "https://briefly.ru/school/5class/"
-        default:
-            print("ошибка")
-        }
-        
+        let url = "https://briefly.ru/toprated/"
         
         
         let myUrl = URL(string: url)
@@ -216,8 +195,8 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
                     // Что нам надо достать?
                     let element = try doc.select("img").array()
                     let element2 = try doc.select("h3").array()
-                    let element3 = try doc.select("div").array()
-                    let element4 = try doc.select("a").array()
+                    let element3 = try doc.select("small").array()
+                    let element4 = try doc.select("h3").array()
                     
                     do{
                         
@@ -227,7 +206,7 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
                         // Первый текст
                         for i in element2 {
                             
-                            if try i.attr("class") == "w-title" {
+                            if try i.attr("class") == "work__title" {
                                 
                                 self.arrayOfText1.append(try i.text())
                                 
@@ -245,9 +224,10 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
                         // Второй текст
                         for i in element3 {
                             
-                            if try i.attr("class") == "w-cat" {
+                            if try i.attr("class") == "work__meta" {
                                 
                                 self.arrayOfText2.append(try i.text())
+                                
                                 DispatchQueue.main.async {
                                     self.tableView.reloadData()
                                 }
@@ -259,9 +239,11 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
                         // Ссылки
                         for i in element4 {
                             
-                            if try i.attr("class") == "work__cover work__cover_type_landscape" || i.attr("class") == "work__cover work__cover_type_portrait"{
-                        
-                                let link = try i.attr("href")
+                            if try i.attr("class") == "work__title" {
+                                
+                                let child = i.childNode(0)
+                                
+                                let link = try child.attr("href")
                                 self.arrayOfLinks.append(link)
                                 
                                 DispatchQueue.main.async {
@@ -293,12 +275,12 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
                                 }
                             }
                         }
+                        
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
                         
                         
-                       
                         
                         
                         
@@ -323,7 +305,6 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
         URLTask.resume()
         
     }
-    
     
 
     

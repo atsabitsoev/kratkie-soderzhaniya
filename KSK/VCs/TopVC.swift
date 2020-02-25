@@ -176,8 +176,8 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     // Что нам надо достать?
                     let element = try doc.select("img").array()
                     let element2 = try doc.select("h3").array()
-                    let element3 = try doc.select("div").array()
-                    let element4 = try doc.select("a").array()
+                    let element3 = try doc.select("small").array()
+                    let element4 = try doc.select("h3").array()
                     
                     do{
                         
@@ -187,7 +187,7 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         // Первый текст
                         for i in element2 {
                             
-                            if try i.attr("class") == "w-title" {
+                            if try i.attr("class") == "work__title" {
                                 
                                 self.arrayOfText1.append(try i.text())
                                 
@@ -205,7 +205,7 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         // Второй текст
                         for i in element3 {
                             
-                            if try i.attr("class") == "w-cat" {
+                            if try i.attr("class") == "work__meta" {
                                 
                                 
                                 DispatchQueue.main.async {
@@ -219,9 +219,11 @@ class TopVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         // Ссылки
                         for i in element4 {
                             
-                            if try i.attr("class") == "work__cover work__cover_type_landscape" || i.attr("class") == "work__cover work__cover_type_portrait"{
+                            if try i.attr("class") == "work__title" {
                                 
-                                let link = try i.attr("href")
+                                let child = i.childNode(0)
+                                
+                                let link = try child.attr("href")
                                 self.arrayOfLinks.append(link)
                                 
                                 DispatchQueue.main.async {

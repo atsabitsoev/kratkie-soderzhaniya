@@ -161,7 +161,7 @@ class PoKlassamVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                         
                         for i in element {
                             
-                            if try i.attr("width") == "514" {
+                            if try i.attr("width") == "240" {
                                 let halfLinkToCurrentPicture = try i.attr("src")
                                 let string1 = "https://briefly.ru" + halfLinkToCurrentPicture
                                 if let linkToCurrentPicture = URL(string: string1) {
