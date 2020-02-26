@@ -90,6 +90,7 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var selectedRowTitle = ""
+    var selectedClass: Int = 0
 
     
     
@@ -173,7 +174,7 @@ class SelecedClassVC: UIViewController, UITableViewDataSource, UITableViewDelega
     func getArrayOfBooksImagesAndText () {
         
         
-        let url = "https://briefly.ru/school/11class"
+        let url = "https://briefly.ru/school/\(selectedClass)class"
         
         
         let myUrl = URL(string: url)

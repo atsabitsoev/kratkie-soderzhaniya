@@ -114,6 +114,7 @@ class PoKlassamVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 
                 let destinationVC = segue.destination as! SelecedClassVC
                 destinationVC.selectedRowTitle = "\(11 - indexPath.row) класс"
+                destinationVC.selectedClass = 11 - indexPath.row
                 
                 
             }
@@ -158,15 +159,22 @@ class PoKlassamVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     do{
                         
                         // Совершем все операции!
-                        
+                        var imagesCount = 0
                         for i in element {
                             
-                            if try i.attr("width") == "240" {
+                            if try i.attr("width") == "240" || i.attr("width") == "320" {
+                                
                                 let halfLinkToCurrentPicture = try i.attr("src")
                                 let string1 = "https://briefly.ru" + halfLinkToCurrentPicture
                                 if let linkToCurrentPicture = URL(string: string1) {
+                                    if imagesCount % 7 != 0 {
+                                        imagesCount += 1
+                                        continue
+                                    }
                                     self.arrayOfPicturesOfClasses.append(linkToCurrentPicture)
+                                    imagesCount += 1
                                 }
+                                
                             }
                             
                             

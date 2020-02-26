@@ -712,6 +712,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="fw8-GT-c9J" secondAttribute="bottom" id="K2s-zh-we7"/>
                                     <constraint firstItem="fw8-GT-c9J" firstAttribute="top" secondItem="Epl-fZ-C9o" secondAttribute="top" id="ZJK-cA-lGI"/>
@@ -823,7 +824,7 @@
                                                 <constraint firstItem="QGn-Z0-rxk" firstAttribute="leading" secondItem="hYg-Cf-UW7" secondAttribute="leadingMargin" id="vlk-dZ-AUk"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <connections>
                                             <outlet property="labName" destination="QGn-Z0-rxk" id="zjU-92-JDN"/>
                                             <segue destination="UPP-cU-b0j" kind="show" identifier="segue3" id="ecO-xn-E63"/>
